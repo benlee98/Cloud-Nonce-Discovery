@@ -16,7 +16,7 @@ def main():
     parser.add_argument('n', metavar='n', type=int, help='The number of desired workers to run')
     parser.add_argument('d', metavar='d', type=int, help='The desired difficulty')
     parser.add_argument('ami', metavar='ami', help='Name of AMI')
-    parser.add_argument('-c', metavar='c', type=float, help='Confidence of finding golden nonce within time limit t. Between 0 and 1. Notes: overrides n (worker count), t argument must also be passed to use this', default=0.5)
+    parser.add_argument('-c', metavar='c', type=float, help='Confidence of finding golden nonce within time limit t. Between 0 and 1. Notes: overrides n (worker count), t argument must also be passed to use this', default=-1)
     parser.add_argument('-t', metavar='t', type=float, help='Time limit (seconds)', default=-1)
     parser.add_argument('-p', metavar='p', type=float, help='Cost limit (in dollars ($)). Note: overriden by time limit', default=-1)
 

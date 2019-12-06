@@ -186,7 +186,10 @@ class Hunter:
             target += one_second_later
             print(datetime.timedelta(seconds=remaining), 'remaining')
             time.sleep((target - now()).total_seconds())
-        self.early_shutdown()
+            if self.result != -1:
+                self.early_shutdown()
+        if self.result == -1:
+            self.early_shutdown()
         print('\nTIMER ended')
         for process in self.all_processes: 
             process.terminate() 
@@ -242,9 +245,9 @@ class Hunter:
                 # Get the custom author message attribute if it was set
                 print('timing information received from remote instance')
                 if message.message_attributes is not None:
-                    self.run_time = message.message_attributes.get('total_time').get('StringValue')
-                    self.calc_time = message.message_attributes.get('calc_time').get('StringValue')
-                    self.setup_time = message.message_attributes.get('setup_time').get('StringValue')
+                    self.run_time = float(message.message_attributes.get('total_time').get('StringValue'))
+                    self.calc_time = float(message.message_attributes.get('calc_time').get('StringValue'))
+                    self.setup_time = float(message.message_attributes.get('setup_time').get('StringValue'))
                     self.ti1 = int(message.message_attributes.get('Start').get('StringValue'))
                     self.ti2 = int(message.message_attributes.get('End').get('StringValue'))
                 message.delete()
@@ -275,7 +278,7 @@ class Hunter:
         f.write(str(int(throughput_estimate * self.time_taken * self.vm_count)))
         if early_shutdown:
             f.write(', time_taken:')
-            f.write(str(self.time_taken))
+            f.write(str(round(self.time_taken, 3)))
         else:
             f.write(', result:')
             f.write(str(self.result))
@@ -288,13 +291,13 @@ class Hunter:
             f.write(', time_end:')
             f.write(str(self.ti2))
             f.write(', total_run_time:')
-            f.write(str(self.run_time))
+            f.write(str(round(self.run_time,3)))
             f.write(', calc_time:')
-            f.write(str(self.calc_time))
+            f.write(str(round(self.calc_time,3)))
             f.write(', setup_time:')
-            f.write(str(self.setup_time))
+            f.write(str(round(self.setup_time,3)))
             f.write(', local_time:')
-            f.write(str(self.time_taken))
+            f.write(str(round(self.time_taken,3)))
         f.write('\n\n')
         f.close() 
 
