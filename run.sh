@@ -2,7 +2,7 @@
 ############################################################################################
 # IMPORTANT: Ensure the value for name in this file matches the value for name in setup.sh #
 ############################################################################################
-ami='ami-0f959a2622173aaa7'
+# name of key pair
 key='linux2'
 name='bl16266_cnd2'
 workers=10

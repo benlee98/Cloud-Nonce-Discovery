@@ -1,4 +1,8 @@
 # Running Instructions
+## AWS Requirements
+* Set AWS credentials and access keys in ~/.aws/credentials
+* Download AWS key pair. The one set currently in this project is called linux2
+* Set AWS region to us-east-2
 ## Cloud Setup
 Before the system can be run the base AMI needs to be created. This has been automated and can be performed by running 
     ./setup.sh
