@@ -6,6 +6,6 @@ __pycache__/
 .terraform.tfstate
 terraform*
 ec2-user*
-cloud_timings
+*.txt
 *.pem
 terraform*
