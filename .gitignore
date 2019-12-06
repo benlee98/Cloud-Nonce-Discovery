@@ -1,0 +1,11 @@
+.vscode/
+Completed/
+Old/
+__pycache__/
+.terraform/
+.terraform.tfstate
+terraform*
+ec2-user*
+cloud_timings
+*.pem
+terraform*

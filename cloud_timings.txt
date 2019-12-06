@@ -1,0 +1,2 @@
+date&time:06/12/2019 09:55:49, shutdown reason:Result found, difficulty:20, vm_count:10, index_search_count_estimate:137960196, result:859135204, result_start:858993460, result_end:1288490190, time_start:858993460, time_end:1288490190, total_run_time:0.55926513671875, calc_time:0.42714667320251465, setup_time:0.13211631774902344, local_time:41.8061201572
+
